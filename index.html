@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>地图模板</title>
+<link rel="stylesheet" href="https://js.arcgis.com/4.5/esri/css/main.css">
+<link rel="stylesheet" type="text/css" href="css/basic.css">
+</head>
+<body>
+    <div id="map-wrapper">
+		<div id="map-header">
+			<a href="https://www.esri.com/en-us/home" class="map-header-logo">
+				<img src="image/logo.png">
+			</a>
+			<div id="searchbox-container">
+				<div id="searchbox-content">
+					<input type="text" id="search-text" name="search-text" autocomplete="off" maxlength="256" placeholder="搜地点" />
+					<div id="search-input-clear"></div>
+					<div id="auto-complete">
+					</div>
+				</div>
+				<button type="button" id="search-btn"></button>
+			</div>
+		</div>
+		<div id="map-content">
+			<div id="view-div"></div>
+			<!--工具选择框-->
+			<div id="tool-container">
+				<input type="checkbox" id="tool-select-tag" />
+				<div class="tool-item">
+					<label for="tool-select-tag" class="tool-select-label">
+						<div id="tool-select" class="tool-item-btn">
+							<i></i>
+							<span>工具</span>
+							<em></em>
+						</div>
+					</label>
+					<ul id="tool-item-list">
+						<li class="tool-item-list-item" id="measure-length">测距离</li>
+						<li class="tool-item-list-item" id="measure-area">测面积</li>
+						<li class="tool-item-list-item" id="clear-measure">清除测量</li>
+						<li class="tool-item-list-item" id="search-address-by-location">图查属性</li>
+					</ul>
+				</div>
+			</div>
+			<!--侧边栏-->
+			<div id="side-bar">
+				<div id="side-bar-content">
+				</div>
+				<div id="side-bar-toggle-btn">
+				</div>
+			</div>
+		</div>
+    </div>
+    <script src="https://js.arcgis.com/4.5/"></script>
+    <script type="text/javascript" src="http://maps.google.cn/maps/api/js?key=AIzaSyDZYvOG18XuZ8lKYmgiV2v8-vI7_8m8EUU&libraries=places"></script>
+    <script type="text/javascript" src="lib/basic.js"></script>
+</body>
+</html>

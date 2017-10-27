@@ -1,0 +1,305 @@
+html,body,#map-wrapper{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+#map-header{
+	display: block;
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
+	position: absolute;
+	top: 0;
+	z-index: 2;
+}
+
+.map-header-logo{
+	margin-left: 20px;
+	display: inline-block;
+	height: 100%;
+	line-height: 100%;
+}
+
+/*--------------搜索框-start--------------*/
+
+#searchbox-container{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 425px;
+	height: 38px;
+	border-radius: 2px;
+	display: inline-block;
+	margin-left: 70px;
+}
+
+#searchbox-content{
+	position: relative;
+	width: 368px;
+	height: 100%;
+	float: left;
+	box-sizing: border-box;
+	box-shadow: 1px 2px 1px rgba(0,0,0,.15);
+	border: 1px solid #b8b8b8;
+}
+
+#search-text{
+	width: 100%;
+	height: 100%;
+	border: none;
+	outline: none; /* 获得焦点时不高亮 */
+	font-size: 16px;
+	position: absolute;
+	top: 0;
+	box-sizing: border-box;
+	padding: 0 30px 0 10px;
+}
+
+#search-input-clear{
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	width: 30px;
+	background: url(../image/search-clear.png) center center no-repeat;
+	cursor: pointer;
+	visibility: hidden; /* 没有输入的情况下隐藏 */
+}
+
+#search-btn{
+	width: 57px;
+	height: 38px; 
+	border: none;
+	float: left;
+	border-radius: 0 2px 2px 0;
+	box-shadow: 1px 2px 1px rgba(0,0,0,.15);
+	cursor: pointer;
+	background: #3385ff url(../image/search.png) center center no-repeat;
+}
+
+#search-btn:hover{
+	background-color: #2e77e5;
+}
+
+#auto-complete{
+	position: absolute;
+	width: 100%; /* 不设高度，让内容自动把它撑起来 */
+	top: 37px;
+	left: 0;
+	max-height: 400px;
+	overflow: auto;
+}
+
+.auto-complete-item{
+	background-color: #fff;
+	cursor: pointer;
+	height: 36px;
+	line-height: 36px;
+	box-sizing: border-box;
+	padding: 0 10px;
+	color: #4c4c4c;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.auto-complete-item:hover{
+	background-color: #F3F3F3;
+}
+
+
+/*---------------end-------------------*/
+
+#map-content{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	padding-top: 61px;
+}
+
+#view-div{
+	width: 100%;
+	height: 100%;
+}
+
+.esri-attribution{ /* 隐藏Attribution控件 */
+	display: none;
+}
+
+
+/*--------------------浮动工具条-start------------------*/
+#tool-container{
+	position: absolute;
+	top: 93px;
+	right: 135px;
+	box-shadow: 1px 2px 1px rgba(0,0,0,.15);
+}
+
+.tool-item{
+	display: inline-block;
+	color: #666;
+	font-size: 13px;
+}
+
+.tool-select-label{
+	display: inline-block;
+}
+
+.tool-item-btn{
+	display: inline-block;
+	color: #666;
+	height: 34px;
+	line-height: 34px;
+	background-color: #fff;
+	cursor: pointer;
+}
+
+.tool-item-btn:hover,.tool-item-list-item:hover{
+	color: #0C88E8;
+}
+
+.tool-item-btn>i,.tool-item-btn>span,.tool-item-btn>em{
+	display: inline-block;
+	float: left;
+}
+
+#tool-select>i{
+	height: 100%;
+	width: 30px;
+	background: #fff url(../image/tools.png) center center no-repeat;
+}
+
+.tool-item-btn>em{
+	width: 24px;
+	height: 100%;
+	background: #fff url(../image/down.png) center center no-repeat;
+}
+
+#tool-item-list{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	position: absolute;
+	left: 0;
+	display: none;
+}
+
+.tool-item-list-item{
+	display: inline-block;
+	padding: 0.5rem 0;
+	cursor: pointer;
+	background-color: #fff;
+	width: 100%;
+	text-align: center;
+}
+
+#tool-select-tag{
+	display: none;
+}
+
+#tool-select-tag:checked + .tool-item > #tool-item-list{ /* 控制工具列表的显示与隐藏 */
+	display: block;
+}
+
+#tool-select-tag:checked + .tool-item > .tool-select-label > .tool-item-btn > em{
+	background-image: url(../image/up.png);
+}
+
+/*------------------------end-------------------------*/
+
+/**************************侧边栏*************************/
+#side-bar{
+	width: 337px;
+	height: 100%;
+	padding-top: 61px;
+	background: #fff;
+	box-sizing: border-box;
+	position: absolute;
+	top: 0;
+	left: -337px;
+	transition: 0.5s left; /* 在0.5s内对left做由快到慢的过渡 */
+}
+
+#side-bar-content{
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 5px 10px;
+	overflow: auto;
+}
+
+#side-bar-toggle-btn{
+	display: inline-block;
+	width: 20px;
+	height: 40px;
+	border: 1px solid #aaa;
+	border-left: none;
+	position: absolute;
+	top: 250px;
+	right: -21px;
+	background: hsla(0,0%,100%,.6) url(../image/side-bar-open.png) center center no-repeat;
+	cursor: pointer;
+	visibility: hidden;
+}
+
+.side-bar-show{
+	left: 0 !important;
+}
+
+.side-bar-toggle-btn-show{
+	visibility: visible !important;
+}
+
+.side-bar-show>.side-bar-toggle-btn-show{
+	background-image: url(../image/side-bar-close.png) !important;
+}
+
+.address-item{
+	display: inline-block;
+	width: 100%;
+	height: 80px;
+	background-color: #fff;
+	cursor: pointer;
+	box-sizing: border-box;
+	padding: 10px;
+}
+
+.address-item:hover{
+	background-color: #E2E2E2 !important; /* 强制让这里css定义的优先级比通过js设置的style的优先级更高 */
+}
+
+.address-item-title,.address-item-address{
+	font-size: 14px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 100%;
+	display: inline-block;
+}
+
+.address-item-title{
+	color: #3385ff;
+	margin: 5px 0 !important;
+}
+
+.address-item-address{
+	color: #4c4c4c;
+}
+
+#adress-not-found-hint{
+	text-align: center;
+	margin-top: 50px;
+}
+
+#adress-not-found-hint-txt{
+	display: inline-block;
+	margin-bottom: 20px;
+}
+
+/*------------------------end-------------------------*/
